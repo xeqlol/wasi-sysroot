@@ -8,7 +8,11 @@ extern "C" {
 #endif
 
 void FD_CLR(int, fd_set *);
-int FD_ISSET(int, const fd_set *);
+#ifdef __cplusplus
+bool FD_ISSET(int, const fd_set *);
+#else
+_Bool FD_ISSET(int, const fd_set *);
+#endif
 void FD_SET(int, fd_set *);
 void FD_ZERO(fd_set *);
 void FD_COPY(const fd_set *, fd_set *);
